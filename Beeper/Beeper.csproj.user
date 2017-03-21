@@ -13,4 +13,7 @@
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <StartArguments>debug "C:\Users\wamwo\Desktop\example.beep"</StartArguments>
+  </PropertyGroup>
 </Project>

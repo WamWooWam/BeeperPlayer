@@ -139,15 +139,21 @@ namespace Beeper.UI
                     ConsolePlus.WriteLine($"Song Title         : {Program.AppState.LoadedFile.Metadata.Title}");
                     ConsolePlus.WriteLine($"Song Artist        : {Program.AppState.LoadedFile.Metadata.Artist}");
                     ConsolePlus.WriteLine($"Composer           : {Program.AppState.LoadedFile.Metadata.FileCreator}");
+                    ConsolePlus.WriteLine($"Duration           : {Program.AppState.LoadedFile.TotalBeeps}");
+                    ConsolePlus.WriteLine($"Total Beeps        : {Program.AppState.LoadedFile.Duration.ToString(@"hh\:mm\:ss")}");
                     // Sets console title
                     Console.Title = $"BeeperPlayer {Program.AppState.LoadedFile.Metadata.Title} - {Program.AppState.LoadedFile.Metadata.Artist}";
+                    Console.WriteLine();
+                    ConsolePlus.Write("Preparing to play... ");
+                    var FileToPlay = Play.PrepareBeeperFile(Program.AppState.LoadedFile);
+                    ConsolePlus.Write("Ready!", ConsoleColor.Green);
                     Console.WriteLine();
                     Console.WriteLine();
                     // Waits to play
                     ConsolePlus.WriteLine("Press any key to play...", ConsoleColor.Green);
                     Console.WriteLine();
                     Console.ReadKey();
-                    Play.PlayBeeperFile(); // Plays the beeper file
+                    Play.PlayBeeperFile(FileToPlay); // Plays the beeper file
 
                 }
                 else

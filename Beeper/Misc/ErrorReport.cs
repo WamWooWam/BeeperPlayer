@@ -23,7 +23,6 @@ namespace Beeper.Common.Models
                 strList.Add(str);
             }
             AppState.CommandLineArgs = strList.ToArray();
-            PlaySync = Play.Sync;
             if (Program.Config.ErrorReporter.IncludeConfig)
                 Config = Program.Config;
             if (Program.Config.ErrorReporter.IncludeEnvironmentInfo)

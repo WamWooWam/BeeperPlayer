@@ -1,0 +1,5 @@
+﻿Beeper Icon (Wikimedia Commons, Public Domain)
+https://commons.wikimedia.org/wiki/File:Speaker_Icon.svg
+
+Random String Generator (dtb on StackOverflow, Creative Commons SA 3.0, Attribution Required)
+http://stackoverflow.com/questions/1344221/how-can-i-generate-random-alphanumeric-strings-in-c

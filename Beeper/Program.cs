@@ -26,6 +26,15 @@ namespace Beeper
 
         static void Main(string[] args)
         {
+            if (args.Contains("reset"))
+            {
+                Settings.Default.Reset();
+                Settings.Default.Save();
+                Settings.Default.Reload();
+                ConsolePlus.WriteLine("Settings Reset", ConsoleColor.Green);
+                Console.WriteLine();
+            }
+
             Config.ErrorReporter = new ErrorReporter(); // Manages error reporting settings
             Config.TimingAccuracy = new Accuracy(); // Manages timing accuracy
             Config.FirstRun = true; // Manages first run
@@ -138,15 +147,6 @@ namespace Beeper
 
             // Saves command line arguments
             AppState.CommandLineArgs = args;
-
-            if (args.Contains("reset"))
-            {
-                Settings.Default.Reset();
-                Settings.Default.Save();
-                Settings.Default.Reload();
-                ConsolePlus.WriteLine("Settings Reset", ConsoleColor.Green);
-                Console.WriteLine();
-            }
             if (args.Contains("debug") || Settings.Default.Debug)
             {
                 Settings.Default.Debug = true;
@@ -170,6 +170,7 @@ namespace Beeper
         /// <param name="e"></param>
         private static async void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
+            Play.StopAllThreads();
             await ReportError(e.ExceptionObject as Exception);
         }
 

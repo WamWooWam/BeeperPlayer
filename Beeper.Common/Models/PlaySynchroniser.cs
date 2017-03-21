@@ -56,7 +56,10 @@ namespace Beeper.Common.Models
         {
             if (Configuration.TimingAccuracy.EnableOnTheFlyAdjustment)
             {
-                return beep.Duration - (int)(beep.Duration * GetCompensationPercentage(beep));
+                if (beep.Duration * GetCompensationPercentage(beep) > 0)
+                    return beep.Duration - (int)(beep.Duration * GetCompensationPercentage(beep));
+                else
+                    return beep.Duration + (int)(beep.Duration * GetCompensationPercentage(beep));
             }
             else
                 return beep.Duration;

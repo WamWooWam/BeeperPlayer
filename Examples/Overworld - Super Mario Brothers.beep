@@ -20,42 +20,56 @@
             {
               "Frequency": 185,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 11,
               "TotalDuration": 152
             },
             {
               "Frequency": 185,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 160,
               "TotalDuration": 301
             },
             {
               "Frequency": 185,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 160,
               "TotalDuration": 301
             },
             {
               "Frequency": 185,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 11,
               "TotalDuration": 152
             },
             {
               "Frequency": 185,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 160,
               "TotalDuration": 301
             },
             {
               "Frequency": 246,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 450,
               "TotalDuration": 591
             },
             {
               "Frequency": 196,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 459,
               "TotalDuration": 152
             }
@@ -70,36 +84,48 @@
             {
               "Frequency": 329,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 11,
               "TotalDuration": 152
             },
             {
               "Frequency": 329,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 160,
               "TotalDuration": 301
             },
             {
               "Frequency": 329,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 160,
               "TotalDuration": 301
             },
             {
               "Frequency": 261,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 11,
               "TotalDuration": 152
             },
             {
               "Frequency": 329,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 160,
               "TotalDuration": 301
             },
             {
               "Frequency": 392,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 459,
               "TotalDuration": 152
             }
@@ -114,42 +140,56 @@
             {
               "Frequency": 185,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 11,
               "TotalDuration": 152
             },
             {
               "Frequency": 185,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 160,
               "TotalDuration": 301
             },
             {
               "Frequency": 185,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 160,
               "TotalDuration": 301
             },
             {
               "Frequency": 185,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 11,
               "TotalDuration": 152
             },
             {
               "Frequency": 185,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 160,
               "TotalDuration": 301
             },
             {
               "Frequency": 246,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 450,
               "TotalDuration": 591
             },
             {
               "Frequency": 196,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 459,
               "TotalDuration": 152
             }
@@ -163,61 +203,61 @@
           "Beeps": [
             {
               "Frequency": 311,
-              "Duration": 84,
+              "Attack": 84,
               "PauseAfter": 217,
               "TotalDuration": 301
             },
             {
               "Frequency": 311,
-              "Duration": 17,
+              "Attack": 17,
               "PauseAfter": 133,
               "TotalDuration": 150
             },
             {
               "Frequency": 311,
-              "Duration": 84,
+              "Attack": 84,
               "PauseAfter": 217,
               "TotalDuration": 301
             },
             {
               "Frequency": 311,
-              "Duration": 17,
+              "Attack": 17,
               "PauseAfter": 133,
               "TotalDuration": 150
             },
             {
               "Frequency": 311,
-              "Duration": 84,
+              "Attack": 84,
               "PauseAfter": 217,
               "TotalDuration": 301
             },
             {
               "Frequency": 311,
-              "Duration": 84,
+              "Attack": 84,
               "PauseAfter": 366,
               "TotalDuration": 450
             },
             {
               "Frequency": 311,
-              "Duration": 84,
+              "Attack": 84,
               "PauseAfter": 217,
               "TotalDuration": 301
             },
             {
               "Frequency": 311,
-              "Duration": 17,
+              "Attack": 17,
               "PauseAfter": 133,
               "TotalDuration": 150
             },
             {
               "Frequency": 311,
-              "Duration": 17,
+              "Attack": 17,
               "PauseAfter": 133,
               "TotalDuration": 150
             },
             {
               "Frequency": 311,
-              "Duration": 17,
+              "Attack": 17,
               "PauseAfter": 133,
               "TotalDuration": 150
             }
@@ -238,42 +278,56 @@
             {
               "Frequency": 164,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 311,
               "TotalDuration": 152
             },
             {
               "Frequency": 130,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 311,
               "TotalDuration": 301
             },
             {
               "Frequency": 98,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 311,
               "TotalDuration": 301
             },
             {
               "Frequency": 130,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 160,
               "TotalDuration": 301
             },
             {
               "Frequency": 146,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 160,
               "TotalDuration": 301
             },
             {
               "Frequency": 138,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 11,
               "TotalDuration": 301
             },
             {
               "Frequency": 130,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 11,
               "TotalDuration": 301
             }
@@ -288,42 +342,56 @@
             {
               "Frequency": 261,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 311,
               "TotalDuration": 152
             },
             {
               "Frequency": 196,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 311,
               "TotalDuration": 152
             },
             {
               "Frequency": 164,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 311,
               "TotalDuration": 152
             },
             {
               "Frequency": 220,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 160,
               "TotalDuration": 152
             },
             {
               "Frequency": 246,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 160,
               "TotalDuration": 152
             },
             {
               "Frequency": 233,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 11,
               "TotalDuration": 152
             },
             {
               "Frequency": 220,
               "Duration": 141,
+              "Attack": 85,
+              "Decay": 55,
               "PauseAfter": 11,
               "TotalDuration": 152
             }
@@ -337,43 +405,43 @@
           "Beeps": [
             {
               "Frequency": 196,
-              "Duration": 311,
+              "Attack": 311,
               "PauseAfter": 11,
               "TotalDuration": 152
             },
             {
               "Frequency": 164,
-              "Duration": 141,
+              "Attack": 141,
               "PauseAfter": 160,
               "TotalDuration": 301
             },
             {
               "Frequency": 130,
-              "Duration": 141,
+              "Attack": 141,
               "PauseAfter": 160,
               "TotalDuration": 301
             },
             {
               "Frequency": 174,
-              "Duration": 141,
+              "Attack": 141,
               "PauseAfter": 160,
               "TotalDuration": 301
             },
             {
               "Frequency": 196,
-              "Duration": 141,
+              "Attack": 141,
               "PauseAfter": 160,
               "TotalDuration": 301
             },
             {
               "Frequency": 185,
-              "Duration": 141,
+              "Attack": 141,
               "PauseAfter": 11,
               "TotalDuration": 301
             },
             {
               "Frequency": 174,
-              "Duration": 141,
+              "Attack": 141,
               "PauseAfter": 160,
               "TotalDuration": 301
             }
@@ -385,7 +453,7 @@
           "Pan": 0.0,
           "SignalType": 1,
           "Beeps": [
-           
+
           ]
         }
       ]

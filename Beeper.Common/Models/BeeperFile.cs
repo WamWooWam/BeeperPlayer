@@ -35,7 +35,8 @@ namespace Beeper.Common.Models
             };
             var Beep = new BeeperBeep()
             {
-                Duration = 1000,
+                Attack = 750,
+                Decay = 250,
                 Frequency = 1000,
                 PauseAfter = 100,
             };
@@ -59,6 +60,43 @@ namespace Beeper.Common.Models
 
         public BeeperMeta Metadata { get; set; }
         public List<BeeperSection> Sections { get; set; }
+
+        [JsonIgnore]
+        public int TotalBeeps
+        {
+            get
+            {
+                var i = 0;
+                foreach (BeeperSection section in Sections)
+                {
+                    foreach (BeeperTrack track in section.Tracks)
+                    {
+                        i += track.Beeps.Count;
+                    }
+                }
+                return i;
+            }
+        }
+
+        [JsonIgnore]
+        public TimeSpan Duration
+        {
+            get
+            {
+                var i = 0;
+                foreach (BeeperSection section in Sections)
+                {
+                    foreach (BeeperTrack track in section.Tracks)
+                    {
+                        foreach (BeeperBeep beep in track.Beeps)
+                        {
+                            i += (beep.TotalDuration * section.Loops);
+                        }
+                    }
+                }
+                return TimeSpan.FromMilliseconds(i);
+            }
+        }
     }
 
     public class BeeperMeta
@@ -67,7 +105,6 @@ namespace Beeper.Common.Models
         public string Title { get; set; }
         public string Artist { get; set; }
         public string FileCreator { get; set; }
-        public Platform Platform { get; set; }
     }
 
     public class BeeperSection
@@ -81,7 +118,7 @@ namespace Beeper.Common.Models
             get
             {
                 var i = 0;
-                foreach (BeeperTrack track in Tracks)
+                foreach (var track in Tracks)
                 {
                     i += track.Beeps.Count;
                 }
@@ -95,6 +132,7 @@ namespace Beeper.Common.Models
         public string Title { get; set; }
         public float Volume { get; set; }
         public float Pan { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
         public SignalGeneratorType SignalType { get; set; }
         public List<BeeperBeep> Beeps { get; set; }
     }
@@ -102,20 +140,13 @@ namespace Beeper.Common.Models
     public class BeeperBeep
     {
         public int Frequency { get; set; }
-        public int Duration { get; set; }
+        public int Attack { get; set; }
+        public int Decay { get; set; }
         public int PauseAfter { get; set; }
+
+        [JsonIgnore]
+        public int Duration { get { return Attack + Decay; } }
+        [JsonIgnore]
         public int TotalDuration { get { return Duration + PauseAfter; } }
-    }
-
-    public enum Platform
-    {
-        Beeper, C64, NES, SMS
-    }
-
-    public enum CompileMethod
-    {
-        Legacy,
-        Interpreter,
-        AheadOfTime
     }
 }

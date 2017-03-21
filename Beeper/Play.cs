@@ -1,5 +1,6 @@
 ﻿using Beeper.Common;
 using Beeper.Common.Models;
+using NAudio.Dsp;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 using System;
@@ -17,53 +18,37 @@ namespace Beeper
         static List<bool> TrackTasksReady = new List<bool>();
         static List<Thread> TrackTasks = new List<Thread>();
         static bool Ready { get { return TrackTasksReady.Count == TrackTasks.Count; } }
-        static bool Playing = false;
-        public static PlaySynchroniser Sync;
 
         /// <summary>
         /// Plays a BeeperFile using method specified by file.
         /// </summary>
-        public static void PlayBeeperFile()
+        public static void PlayBeeperFile(PreparedFile FileToPlay)
         {
-            BeeperFile FileToPlay = Program.AppState.LoadedFile; // Gets the file to play
-            Sync = new PlaySynchroniser(Program.Config); // Initialises the synchroniser to use
             Program.AppState.BasicState = BasicState.SpawningThreads; // Sets the app's basic state (aids error reporting)
-            foreach (BeeperSection section in FileToPlay.Sections) // Go through each section
+
+            foreach (PreparedSection section in FileToPlay.Sections) // Go through each section
             {
-                foreach (BeeperTrack track in section.Tracks) // Go through each track
+                ConsolePlus.WriteHeading($"{section.Title} - {section.TotalBeeps} Beeps", colour: ConsoleColor.Cyan);
+                foreach (PreparedTrack track in section.Tracks) // Go through each track
                 {
                     Thread TrackTask = new Thread(() => // Create a task for the track
                     {
-                        ConsolePlus.WriteDebug("SYNC", $@"Synchronising task for ""{track.Title}""..."); // Output track sync info (Helps on Dual Cores)
-                        var signalGenerator = new SignalGenerator(); // Initialise the signal generator
-                        signalGenerator.Gain = track.Volume; // Set gain
-                        signalGenerator.Type = track.SignalType; // Set volume
-                        var panProvider = new PanningSampleProvider(signalGenerator.ToMono()); // Initialise pan provider (faux stereo)
-                        panProvider.Pan = track.Pan; // Set panning
-
+                        // ConsolePlus.WriteDebug("SYNC", $@"Synchronising task for ""{track.Title}""..."); // Output track sync info (Helps on Dual Cores)
                         // Initialise player based on output settings
-                        IWavePlayer waveOut = new WaveOut();
-                        if (Program.AppState.Output == Output.Asio)
-                            waveOut = new AsioOut();
-                        else if (Program.AppState.Output == Output.DirectSound)
-                            waveOut = new DirectSoundOut();
-                        else if (Program.AppState.Output == Output.File)
-                        {
-                            // TODO: File output
-                        }
-                        else if (Program.AppState.Output == Output.Wasapi)
-                            waveOut = new WasapiOut();
-                        else if (Program.AppState.Output == Output.WaveOut)
-                            waveOut = new WaveOut();
-
-                        waveOut.Init(panProvider); // Initialise with providers
-
-                        TrackTasksReady.Add(true); // Say the task is ready.
-                        while (!Ready || !Playing) { Thread.Sleep(5); } // Wait until other tasks are ready. TODO: This is ugly af.
+                        // TrackTasksReady.Add(true); // Say the task is ready.
+                        // while (!Ready || !Playing) { Thread.Sleep(5); } // Wait until other tasks are ready. TODO: This is ugly af.
                         for (var i = 1; i <= section.Loops; i++) // For each loop
                         {
                             // Play all beeps in the track
-                            PlayBeeps(track.Beeps, track, signalGenerator, waveOut, Sync);
+                                foreach (PreparedBeep beep in track.Beeps)
+                                {
+                                    Console.WriteLine($" Playing {track.SignalType} @ {beep.Frequency}Hz for {beep.Duration}ms."); // Output beep info to console
+
+                                    beep.Player.Play(); // Begin playing the output
+                                    Thread.Sleep(beep.TotalDuration);
+                                    // Rinse and repeat.   
+                                }
+                            
                         }
 
                     });
@@ -71,12 +56,105 @@ namespace Beeper
                 }
                 Parallel.ForEach(TrackTasks, t => t.Start());
                 Program.AppState.BasicState = BasicState.PreparingThreads;
-                while (!Ready) { Thread.Sleep(5); }
-                Playing = true;
                 while (TrackTasks.Any(t => t.IsAlive)) { Thread.Sleep(5); }
                 TrackTasksReady.Clear();
                 TrackTasks.Clear();
             }
+        }
+
+        public static void StopAllThreads()
+        {
+            if (TrackTasks.Any(t => t.IsAlive))
+            {
+                foreach (Thread thread in TrackTasks)
+                {
+                    thread.Abort();
+                }
+            }
+        }
+
+        public static PreparedFile PrepareBeeperFile(BeeperFile Original)
+        {
+            var PreparedFile = new PreparedFile();
+            PreparedFile.Metadata = Original.Metadata;
+            PreparedFile.Sections = new List<PreparedSection>();
+            foreach (BeeperSection section in Original.Sections)
+            {
+                for (var i = 1; i <= section.Loops; i++) // For each loop
+                {
+                    PreparedSection newSection = new PreparedSection();
+                    newSection.Loops = section.Loops;
+                    newSection.Title = section.Title;
+                    newSection.Tracks = new List<PreparedTrack>();
+
+                    foreach (BeeperTrack track in section.Tracks)
+                    {
+                        PreparedTrack newTrack = new PreparedTrack();
+                        newTrack.Volume = track.Volume;
+                        newTrack.SignalType = track.SignalType;
+                        newTrack.Pan = track.Pan;
+                        newTrack.Title = track.Title;
+                        newTrack.Beeps = new List<PreparedBeep>();
+                        foreach (BeeperBeep beep in track.Beeps)
+                        {
+                            PreparedBeep newBeep = new PreparedBeep();
+                            newBeep.Attack = beep.Attack;
+                            newBeep.Decay = beep.Decay;
+                            newBeep.Frequency = beep.Frequency;
+                            newBeep.PauseAfter = beep.PauseAfter;
+
+                            IWavePlayer waveOut = new WaveOut();
+                            if (Program.AppState.Output == Output.Asio)
+                                waveOut = new AsioOut();
+                            else if (Program.AppState.Output == Output.DirectSound)
+                                waveOut = new DirectSoundOut();
+                            else if (Program.AppState.Output == Output.File)
+                            {
+                                // TODO: File output
+                            }
+                            else if (Program.AppState.Output == Output.Wasapi)
+                                waveOut = new WasapiOut();
+                            else if (Program.AppState.Output == Output.WaveOut)
+                                waveOut = new WaveOut();
+
+                            var signalGenerator = new SignalGenerator(); // Initialise the signal generator
+                            signalGenerator.Gain = track.Volume; // Set gain
+                            signalGenerator.Type = track.SignalType; // Set signal type
+                            signalGenerator.Frequency = beep.Frequency;
+
+                            var duration = new OffsetSampleProvider(signalGenerator);
+                            duration.Take = TimeSpan.FromMilliseconds(beep.Duration);
+
+                            var pause = new OffsetSampleProvider(duration);
+                            pause.LeadOut = TimeSpan.FromMilliseconds(beep.PauseAfter);
+
+                            var panProvider = new PanningSampleProvider(pause.ToMono());
+                            panProvider.Pan = track.Pan;
+
+                            if (beep.Attack != 0 && beep.Decay != 0)
+                            {
+                                var asioProvider = new Test.SampleProviders.AdsrSampleProvider(panProvider.ToMono());
+                                asioProvider.AttackSeconds = beep.Attack / 1000;
+                                asioProvider.DecaySeconds = beep.Attack / 1000;
+                                //asioProvider.Take(TimeSpan.FromMilliseconds(beep.TotalDuration));
+                                waveOut.Init(asioProvider);
+                                newBeep.SampleProvider = asioProvider;
+                            }
+                            else
+                            {
+                                waveOut.Init(panProvider);
+                                newBeep.SampleProvider = panProvider;
+                            }
+
+                            newBeep.Player = waveOut;
+                            newTrack.Beeps.Add(newBeep);
+                        }
+                        newSection.Tracks.Add(newTrack);
+                    }
+                    PreparedFile.Sections.Add(newSection);
+                }
+            }
+            return PreparedFile;
         }
 
         /// <summary>
@@ -88,50 +166,25 @@ namespace Beeper
         /// <param name="signalGenerator">The signal generator to use</param>
         /// <param name="waveOut">The IWavePlayer to use</param>
         /// <param name="Sync">The PlaySynchroniser to use</param>
-        public static void PlayBeeps(List<BeeperBeep> Beeps, BeeperTrack track, SignalGenerator signalGenerator, IWavePlayer waveOut, PlaySynchroniser Sync)
+        public static void PlayBeeps(List<BeeperBeep> Beeps, BeeperTrack track, SignalGenerator signalGenerator, IWavePlayer waveOut)
         {
-            // Initialise a stopwatch to time how long the beep takes
-            // vs how long it actually takes
-            // TODO: Asyncronously work out the difference between how lomg a beep is taking
-            //       vs. how long it should be taking and inteligently compensate for that.
-            Stopwatch TimeWatcher = new Stopwatch();
-            foreach (BeeperBeep beep in Beeps)
+            if (track.SignalType == SignalGeneratorType.White || track.SignalType == SignalGeneratorType.Pink)
             {
-                TimeWatcher.Start(); // Begin timing the beep
-                signalGenerator.Frequency = beep.Frequency; // Set the output frequency
-                Console.WriteLine();
-                Console.Write($" Playing {track.SignalType} @ {beep.Frequency}Hz for {beep.Duration}ms."); // Output beep info to console
-                if (Program.Config.TimingAccuracy.EnableOnTheFlyAdjustment)
-                    Console.Write($" Adjusting by {Sync.PlayPercentageReduction * -100}% ({(beep.Duration - Sync.GetCompensatedPlayTime(beep)).ToString("+0;-#")}ms)");
-
-                waveOut.Play(); // Begin playing the output
-
-                if (Sync.GetCompensatedPlayTime(beep) > 0)
-                    Thread.Sleep(Sync.GetCompensatedPlayTime(beep)); // Wait for duration
-
-                // Hack to work around DSound issues
-                // TODO: Work properly.
-                if (Program.AppState.Output == Output.DirectSound)
-                    waveOut.Pause(); // Stop the output
-                else
-                    waveOut.Stop();
-
-                // Submit play time to synchroniser
-                if (Program.Config.TimingAccuracy.EnableOnTheFlyAdjustment)
-                    Sync.SubmitPlayTime(beep.Duration, TimeWatcher.ElapsedMilliseconds);
-
-                ConsolePlus.WriteDebug("PLAY", $"Waiting for {beep.PauseAfter}ms"); // Output more debugging info
-                if (Sync.GetCompensatedPauseTime(beep) > 0) // Prevents crashes on stupidly slow systems.
-                    Thread.Sleep(Sync.GetCompensatedPauseTime(beep)); // Wait for pause     
-
-                if (Program.Config.TimingAccuracy.EnableOnTheFlyAdjustment)
+                // Massively better player, doesn't work with noise. FFS.
+                // This is made even more annoying by the fact that noise is generally used as drums
+                // so keeping it in sync properly is very important.
+                ConsolePlus.WriteLine("Skipping Noise Track", ConsoleColor.Red);
+            }
+            else
+            {
+                foreach (PreparedBeep beep in Beeps)
                 {
-                    ConsolePlus.WriteDebug("SYNC", $"Play took {TimeWatcher.ElapsedMilliseconds}ms, expected {beep.TotalDuration}ms"); // Output as debugging info.
-                    TimeWatcher.Stop();
-                    Sync.EvaluateTime(beep.TotalDuration, (int)TimeWatcher.ElapsedMilliseconds); // Write evaluation of play time
-                    TimeWatcher.Reset(); // Reset
+                    Console.WriteLine($" Playing {track.SignalType} @ {beep.Frequency}Hz for {beep.Duration}ms."); // Output beep info to console
+
+                    beep.Player.Play(); // Begin playing the output
+                    Thread.Sleep(beep.TotalDuration);
+                    // Rinse and repeat.   
                 }
-                // Rinse and repeat.   
             }
         }
     }

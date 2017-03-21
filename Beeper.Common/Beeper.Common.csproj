@@ -52,6 +52,7 @@
     <Compile Include="Models\BeeperFile.cs" />
     <Compile Include="Models\Config.cs" />
     <Compile Include="Models\PlaySynchroniser.cs" />
+    <Compile Include="Models\PreparedFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
