@@ -18,30 +18,14 @@ namespace Beeper.Common.Models
 
     public class PreparedSection : BeeperSection
     {
+        public int Index { get; set; }
         public new List<PreparedTrack> Tracks { get; set; }
-        [JsonIgnore]
-        public new int TotalBeeps
-        {
-            get
-            {
-                var i = 0;
-                foreach (var track in Tracks)
-                {
-                    i += track.Beeps.Count;
-                }
-                return i;
-            }
-        }
     }
 
-    public class PreparedTrack : BeeperTrack
+    public class PreparedTrack
     {
-        public new List<PreparedBeep> Beeps { get; set; }
-    }
-
-    public class PreparedBeep : BeeperBeep
-    {
-        public ISampleProvider SampleProvider { get; set; }
         public IWavePlayer Player { get; set; }
+        public ISampleProvider Provider { get; set; }
+        public int Index { get; set; }
     }
 }

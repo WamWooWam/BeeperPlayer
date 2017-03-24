@@ -38,10 +38,9 @@ namespace Beeper
             Config.ErrorReporter = new ErrorReporter(); // Manages error reporting settings
             Config.TimingAccuracy = new Accuracy(); // Manages timing accuracy
             Config.FirstRun = true; // Manages first run
-            ConsolePlus.Debug = Settings.Default.Debug; // Manages debug
-                                                        // TODO: Move to config.json file
-            // Sets exception handler
-            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+            ConsolePlus.Debug = Config.Debug; // Manages debug
+
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException; // Sets exception handler
             if (File.Exists(Path.Combine(CurrentDurectory, "config.json"))) // Checks for configuration file
             {
                 try
@@ -147,10 +146,11 @@ namespace Beeper
 
             // Saves command line arguments
             AppState.CommandLineArgs = args;
-            if (args.Contains("debug") || Settings.Default.Debug)
+            if (args.Contains("debug") || Config.Debug)
             {
-                Settings.Default.Debug = true;
-                Settings.Default.Save();
+                Config.Debug = true;
+                ConsolePlus.Debug = true;
+                Config.Save(CurrentDurectory); 
                 ConsolePlus.WriteLine($"     --- DEBUG MODE ENABLED --- ", ConsoleColor.Red);
             }
             try
@@ -170,7 +170,6 @@ namespace Beeper
         /// <param name="e"></param>
         private static async void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            Play.StopAllThreads();
             await ReportError(e.ExceptionObject as Exception);
         }
 

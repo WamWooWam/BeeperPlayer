@@ -11,9 +11,7 @@ namespace Beeper.Test.SampleProviders
     public class AdsrSampleProvider : ISampleProvider
     {
         private readonly ISampleProvider source;
-        private readonly EnvelopeGenerator adsr;
-        private float attackSeconds;
-        private float releaseSeconds;
+        public readonly EnvelopeGenerator adsr;
 
         /// <summary>
         /// Creates a new AdsrSampleProvider with default values
@@ -23,43 +21,7 @@ namespace Beeper.Test.SampleProviders
             if (source.WaveFormat.Channels > 1) throw new ArgumentException("Currently only supports mono inputs");
             this.source = source;
             adsr = new EnvelopeGenerator();
-            AttackSeconds = 0.01f;
-            adsr.SustainLevel = 1.0f;
-            adsr.DecayRate = 0.1f * WaveFormat.SampleRate;
-            DecaySeconds = 0.3f;
             adsr.Gate(true);
-        }
-
-        /// <summary>
-        /// Attack time in seconds
-        /// </summary>
-        public float AttackSeconds
-        {
-            get
-            {
-                return attackSeconds;
-            }
-            set
-            {
-                attackSeconds = value;
-                adsr.AttackRate = attackSeconds * WaveFormat.SampleRate;
-            }
-        }
-
-        /// <summary>
-        /// Release time in seconds
-        /// </summary>
-        public float DecaySeconds
-        {
-            get
-            {
-                return releaseSeconds;
-            }
-            set
-            {
-                releaseSeconds = value;
-                adsr.DecayRate = releaseSeconds * WaveFormat.SampleRate;
-            }
         }
 
         /// <summary>

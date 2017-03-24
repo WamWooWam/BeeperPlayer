@@ -3,8 +3,7 @@
     "Version": 3,
     "Title": "Example Title",
     "Artist": "Example Artist",
-    "FileCreator": "Thomas",
-    "Platform": 0
+    "FileCreator": "Thomas"
   },
   "Sections": [
     {
@@ -15,63 +14,49 @@
           "Title": "Pulse 1",
           "Volume": 0.25,
           "Pan": 0.0,
-          "SignalType": 4,
+          "SignalType": "Square",
           "Beeps": [
             {
               "Frequency": 185,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 11,
-              "TotalDuration": 152
+              "PauseAfter": 11
             },
             {
               "Frequency": 185,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "PauseAfter": 160
             },
             {
               "Frequency": 185,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "PauseAfter": 160
             },
             {
               "Frequency": 185,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 11,
-              "TotalDuration": 152
+              "PauseAfter": 11
             },
             {
               "Frequency": 185,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "PauseAfter": 160
             },
             {
               "Frequency": 246,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 450,
-              "TotalDuration": 591
+              "PauseAfter": 450
             },
             {
               "Frequency": 196,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 459,
-              "TotalDuration": 152
+              "PauseAfter": 459
             }
           ]
         },
@@ -79,55 +64,43 @@
           "Title": "Pulse 2",
           "Volume": 0.2,
           "Pan": 0.0,
-          "SignalType": 4,
+          "SignalType": "Square",
           "Beeps": [
             {
               "Frequency": 329,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 11,
-              "TotalDuration": 152
+              "PauseAfter": 11
             },
             {
               "Frequency": 329,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "PauseAfter": 160
             },
             {
               "Frequency": 329,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "PauseAfter": 160
             },
             {
               "Frequency": 261,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 11,
-              "TotalDuration": 152
+              "PauseAfter": 11
             },
             {
               "Frequency": 329,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "PauseAfter": 160
             },
             {
               "Frequency": 392,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 459,
-              "TotalDuration": 152
+              "PauseAfter": 459
             }
           ]
         },
@@ -135,63 +108,49 @@
           "Title": "Triangle",
           "Volume": 0.25,
           "Pan": 0.0,
-          "SignalType": 5,
+          "SignalType": "Triangle",
           "Beeps": [
             {
               "Frequency": 185,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 11,
-              "TotalDuration": 152
+              "PauseAfter": 11
             },
             {
               "Frequency": 185,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "PauseAfter": 160
             },
             {
               "Frequency": 185,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "PauseAfter": 160
             },
             {
               "Frequency": 185,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 11,
-              "TotalDuration": 152
+              "PauseAfter": 11
             },
             {
               "Frequency": 185,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "PauseAfter": 160
             },
             {
               "Frequency": 246,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 450,
-              "TotalDuration": 591
+              "PauseAfter": 450
             },
             {
               "Frequency": 196,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 459,
-              "TotalDuration": 152
+              "PauseAfter": 459
             }
           ]
         },
@@ -199,67 +158,67 @@
           "Title": "Noise",
           "Volume": 0.15,
           "Pan": 0.0,
-          "SignalType": 1,
+          "SignalType": "White",
           "Beeps": [
             {
               "Frequency": 311,
               "Attack": 84,
-              "PauseAfter": 217,
-              "TotalDuration": 301
+              "Decay": 0,
+              "PauseAfter": 217
             },
             {
               "Frequency": 311,
               "Attack": 17,
-              "PauseAfter": 133,
-              "TotalDuration": 150
+              "Decay": 0,
+              "PauseAfter": 133
             },
             {
               "Frequency": 311,
               "Attack": 84,
-              "PauseAfter": 217,
-              "TotalDuration": 301
+              "Decay": 0,
+              "PauseAfter": 217
             },
             {
               "Frequency": 311,
               "Attack": 17,
-              "PauseAfter": 133,
-              "TotalDuration": 150
+              "Decay": 0,
+              "PauseAfter": 133
             },
             {
               "Frequency": 311,
               "Attack": 84,
-              "PauseAfter": 217,
-              "TotalDuration": 301
+              "Decay": 0,
+              "PauseAfter": 217
             },
             {
               "Frequency": 311,
               "Attack": 84,
-              "PauseAfter": 366,
-              "TotalDuration": 450
+              "Decay": 0,
+              "PauseAfter": 366
             },
             {
               "Frequency": 311,
               "Attack": 84,
-              "PauseAfter": 217,
-              "TotalDuration": 301
+              "Decay": 0,
+              "PauseAfter": 217
             },
             {
               "Frequency": 311,
               "Attack": 17,
-              "PauseAfter": 133,
-              "TotalDuration": 150
+              "Decay": 0,
+              "PauseAfter": 133
             },
             {
               "Frequency": 311,
               "Attack": 17,
-              "PauseAfter": 133,
-              "TotalDuration": 150
+              "Decay": 0,
+              "PauseAfter": 133
             },
             {
               "Frequency": 311,
               "Attack": 17,
-              "PauseAfter": 133,
-              "TotalDuration": 150
+              "Decay": 0,
+              "PauseAfter": 133
             }
           ]
         }
@@ -267,69 +226,115 @@
     },
     {
       "Title": "Main",
-      "Loops": 1,
+      "Loops": 2,
       "Tracks": [
         {
           "Title": "Pulse 1",
           "Volume": 0.25,
           "Pan": 0.0,
-          "SignalType": 4,
+          "SignalType": "Square",
           "Beeps": [
             {
               "Frequency": 164,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 311,
-              "TotalDuration": 152
+              "PauseAfter": 311
             },
             {
               "Frequency": 130,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 311,
-              "TotalDuration": 301
+              "PauseAfter": 311
             },
             {
               "Frequency": 98,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 311,
-              "TotalDuration": 301
+              "PauseAfter": 311
             },
             {
               "Frequency": 130,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "PauseAfter": 160
             },
             {
               "Frequency": 146,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "PauseAfter": 160
             },
             {
               "Frequency": 138,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 11,
-              "TotalDuration": 301
+              "PauseAfter": 11
             },
             {
               "Frequency": 130,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 11,
-              "TotalDuration": 301
+              "PauseAfter": 160
+            },
+            {
+              "Frequency": 130,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 77
+            },
+            {
+              "Frequency": 196,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 95
+            },
+            {
+              "Frequency": 246,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 11
+            },
+            {
+              "Frequency": 261,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 160
+            },
+            {
+              "Frequency": 220,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 11
+            },
+            {
+              "Frequency": 246,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 160
+            },
+            {
+              "Frequency": 220,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 160
+            },
+            {
+              "Frequency": 164,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 11
+            },
+            {
+              "Frequency": 174,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 11
+            },
+            {
+              "Frequency": 146,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 0
             }
           ]
         },
@@ -337,63 +342,109 @@
           "Title": "Pulse 2",
           "Volume": 0.2,
           "Pan": 0.0,
-          "SignalType": 4,
+          "SignalType": "Square",
           "Beeps": [
             {
               "Frequency": 261,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 311,
-              "TotalDuration": 152
+              "PauseAfter": 311
             },
             {
               "Frequency": 196,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 311,
-              "TotalDuration": 152
+              "PauseAfter": 311
             },
             {
               "Frequency": 164,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 311,
-              "TotalDuration": 152
+              "PauseAfter": 311
             },
             {
               "Frequency": 220,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 160,
-              "TotalDuration": 152
+              "PauseAfter": 160
             },
             {
               "Frequency": 246,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 160,
-              "TotalDuration": 152
+              "PauseAfter": 160
             },
             {
               "Frequency": 233,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 11,
-              "TotalDuration": 152
+              "PauseAfter": 11
             },
             {
               "Frequency": 220,
-              "Duration": 141,
               "Attack": 85,
               "Decay": 55,
-              "PauseAfter": 11,
-              "TotalDuration": 152
+              "PauseAfter": 160
+            },
+            {
+              "Frequency": 196,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 77
+            },
+            {
+              "Frequency": 329,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 95
+            },
+            {
+              "Frequency": 392,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 11
+            },
+            {
+              "Frequency": 440,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 160
+            },
+            {
+              "Frequency": 349,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 11
+            },
+            {
+              "Frequency": 392,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 160
+            },
+            {
+              "Frequency": 329,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 160
+            },
+            {
+              "Frequency": 261,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 11
+            },
+            {
+              "Frequency": 293,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 11
+            },
+            {
+              "Frequency": 246,
+              "Attack": 85,
+              "Decay": 55,
+              "PauseAfter": 0
             }
           ]
         },
@@ -401,49 +452,109 @@
           "Title": "Triangle",
           "Volume": 0.25,
           "Pan": 0.0,
-          "SignalType": 5,
+          "SignalType": "Triangle",
           "Beeps": [
             {
               "Frequency": 196,
-              "Attack": 311,
-              "PauseAfter": 11,
-              "TotalDuration": 152
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 311
             },
             {
               "Frequency": 164,
-              "Attack": 141,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 311
             },
             {
               "Frequency": 130,
-              "Attack": 141,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 311
             },
             {
               "Frequency": 174,
-              "Attack": 141,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 160
             },
             {
               "Frequency": 196,
-              "Attack": 141,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 160
             },
             {
               "Frequency": 185,
-              "Attack": 141,
-              "PauseAfter": 11,
-              "TotalDuration": 301
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 11
             },
             {
               "Frequency": 174,
-              "Attack": 141,
-              "PauseAfter": 160,
-              "TotalDuration": 301
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 160
+            },
+            {
+              "Frequency": 164,
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 77
+            },
+            {
+              "Frequency": 261,
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 95
+            },
+            {
+              "Frequency": 329,
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 11
+            },
+            {
+              "Frequency": 349,
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 160
+            },
+            {
+              "Frequency": 293,
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 11
+            },
+            {
+              "Frequency": 329,
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 160
+            },
+            {
+              "Frequency": 261,
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 160
+            },
+            {
+              "Frequency": 220,
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 11
+            },
+            {
+              "Frequency": 246,
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 11
+            },
+            {
+              "Frequency": 196,
+              "Attack": 140,
+              "Decay": 0,
+              "PauseAfter": 0
             }
           ]
         },
@@ -451,9 +562,128 @@
           "Title": "Noise",
           "Volume": 0.15,
           "Pan": 0.0,
-          "SignalType": 1,
+          "SignalType": "White",
           "Beeps": [
-
+            {
+              "Frequency": 100,
+              "Attack": 10,
+              "PauseAfter": 276
+            },
+            {
+              "Frequency": 196,
+              "Attack": 17,
+              "PauseAfter": 200
+            },
+            {
+              "Frequency": 196,
+              "Attack": 17,
+              "PauseAfter": 66
+            },
+            {
+              "Frequency": 196,
+              "Attack": 84,
+              "PauseAfter": 216
+            },
+            {
+              "Frequency": 196,
+              "Attack": 17,
+              "PauseAfter": 200
+            },
+            {
+              "Frequency": 196,
+              "Attack": 24,
+              "PauseAfter": 65
+            },
+            {
+              "Frequency": 100,
+              "Attack": 10,
+              "PauseAfter": 276
+            },
+            {
+              "Frequency": 196,
+              "Attack": 17,
+              "PauseAfter": 200
+            },
+            {
+              "Frequency": 196,
+              "Attack": 17,
+              "PauseAfter": 66
+            },
+            {
+              "Frequency": 196,
+              "Attack": 84,
+              "PauseAfter": 216
+            },
+            {
+              "Frequency": 196,
+              "Attack": 17,
+              "PauseAfter": 200
+            },
+            {
+              "Frequency": 196,
+              "Attack": 24,
+              "PauseAfter": 65
+            },
+            {
+              "Frequency": 100,
+              "Attack": 10,
+              "PauseAfter": 276
+            },
+            {
+              "Frequency": 196,
+              "Attack": 17,
+              "PauseAfter": 200
+            },
+            {
+              "Frequency": 196,
+              "Attack": 17,
+              "PauseAfter": 66
+            },
+            {
+              "Frequency": 196,
+              "Attack": 84,
+              "PauseAfter": 216
+            },
+            {
+              "Frequency": 196,
+              "Attack": 17,
+              "PauseAfter": 200
+            },
+            {
+              "Frequency": 196,
+              "Attack": 24,
+              "PauseAfter": 65
+            },
+            {
+              "Frequency": 100,
+              "Attack": 10,
+              "PauseAfter": 276
+            },
+            {
+              "Frequency": 196,
+              "Attack": 17,
+              "PauseAfter": 200
+            },
+            {
+              "Frequency": 196,
+              "Attack": 17,
+              "PauseAfter": 66
+            },
+            {
+              "Frequency": 196,
+              "Attack": 84,
+              "PauseAfter": 216
+            },
+            {
+              "Frequency": 196,
+              "Attack": 17,
+              "PauseAfter": 200
+            },
+            {
+              "Frequency": 196,
+              "Attack": 24,
+              "PauseAfter": 65
+            }
           ]
         }
       ]
