@@ -125,10 +125,7 @@ namespace Beeper.UI
                     else if (args.Contains("directsound") || args.Contains("ds"))
                         Program.AppState.Output = Output.DirectSound;
                     else if (args.Contains("file"))
-                    {
-                        throw new NotImplementedException();
-                        // TODO: File output
-                    }
+                        Program.AppState.Output = Output.File;
                     else if (args.Contains("wasapi"))
                         Program.AppState.Output = Output.Wasapi;
                     else
@@ -144,16 +141,62 @@ namespace Beeper.UI
                     // Sets console title
                     Console.Title = $"BeeperPlayer {Program.AppState.LoadedFile.Metadata.Title} - {Program.AppState.LoadedFile.Metadata.Artist}";
                     Console.WriteLine();
-                    ConsolePlus.Write("Preparing to play... ");
-                    var FileToPlay = Play.PrepareBeeperFile(Program.AppState.LoadedFile);
-                    ConsolePlus.Write("Ready!", ConsoleColor.Green);
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    // Waits to play
-                    ConsolePlus.WriteLine("Press any key to play...", ConsoleColor.Green);
-                    Console.WriteLine();
-                    Console.ReadKey();
-                    Play.PlayBeeperFile(FileToPlay); // Plays the beeper file
+                    if (Program.AppState.Output != Output.File)
+                    {
+                        ConsolePlus.Write("Preparing to play... ");
+                        var FileToPlay = Prepare.PrepareBeeperFile(Program.AppState.LoadedFile);
+                        ConsolePlus.Write("Ready!", ConsoleColor.Green);
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        // Waits to play
+                        ConsolePlus.WriteLine("Press any key to play...", ConsoleColor.Green);
+                        Console.WriteLine();
+                        Console.ReadKey();
+                        Play.PlayBeeperFile(FileToPlay); // Plays the beeper file
+                    }
+                    else
+                    {
+                        ConsolePlus.WriteLine("Enter an output filename");
+                        Console.Write(" ");
+                        var OutputFile = Console.ReadLine();
+                        Console.WriteLine();
+                        if (String.IsNullOrEmpty(Path.GetExtension(OutputFile)))
+                            OutputFile += ".wav";
+                        bool Overwrite = true;
+                        if (File.Exists(OutputFile))
+                        {
+                            ConsolePlus.WriteLine($@"The file ""{OutputFile}"" already exists. Do you want to overwrite it?");
+                            while (true)
+                            {
+                                var key = Console.ReadKey();
+                                Console.WriteLine();
+                                if (key.KeyChar == 'y')
+                                {
+                                    Overwrite = true;
+                                    break;
+                                }
+                                else if (key.KeyChar == 'n')
+                                {
+                                    Overwrite = false;
+                                    break;
+                                }
+                                else
+                                    ConsolePlus.WriteLine("I said, Y/N you twat!");
+                            }
+                        }
+                        if (Overwrite)
+                        {
+                            File.Delete(OutputFile);
+                            Export.ExportBeeperFile(Program.AppState.LoadedFile, OutputFile);
+                        }
+                        else
+                        {
+                            ConsolePlus.Write("Press any key to exit...", ConsoleColor.Green);
+                            Console.ReadKey();
+                            Console.ForegroundColor = LaunchColour;
+                            Environment.Exit(0);
+                        }
+                    }
                 }
                 else
                 {
@@ -168,7 +211,7 @@ namespace Beeper.UI
                         ConsolePlus.WriteLine("OK! Let's try this then!");
                         var list = args.ToList();
                         list.Add(FileToOpen);
-                        CLI.RunCLI(list.ToArray());
+                        RunCLI(list.ToArray());
                     }
                     else
                     {
