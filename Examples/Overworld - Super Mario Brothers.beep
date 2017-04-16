@@ -1,10 +1,17 @@
 {
   "Metadata": {
     "Version": 3,
-    "Title": "Example Title",
-    "Artist": "Example Artist",
+    "Title": "Overworld",
+    "Artist": "Super Mario Brothers",
     "FileCreator": "Thomas"
   },
+  "Instruments": [
+    {
+      "Attack": 10,
+	  "Decay":10,
+	  "SustainLevel":0.95
+    }
+  ],
   "Sections": [
     {
       "Title": "Opening",
@@ -18,44 +25,44 @@
           "Beeps": [
             {
               "Frequency": 185,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 185,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 185,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 185,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 185,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 246,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 450
             },
             {
               "Frequency": 196,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 459
             }
           ]
@@ -68,38 +75,38 @@
           "Beeps": [
             {
               "Frequency": 329,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 329,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 329,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 261,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 329,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 392,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 459
             }
           ]
@@ -112,44 +119,44 @@
           "Beeps": [
             {
               "Frequency": 185,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 185,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 185,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 185,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 185,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 246,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 450
             },
             {
               "Frequency": 196,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 459
             }
           ]
@@ -162,62 +169,62 @@
           "Beeps": [
             {
               "Frequency": 311,
-              "Attack": 84,
-              "Decay": 0,
+              "Duration": 84,
+
               "PauseAfter": 217
             },
             {
               "Frequency": 311,
-              "Attack": 17,
-              "Decay": 0,
+              "Duration": 17,
+
               "PauseAfter": 133
             },
             {
               "Frequency": 311,
-              "Attack": 84,
-              "Decay": 0,
+              "Duration": 84,
+
               "PauseAfter": 217
             },
             {
               "Frequency": 311,
-              "Attack": 17,
-              "Decay": 0,
+              "Duration": 17,
+
               "PauseAfter": 133
             },
             {
               "Frequency": 311,
-              "Attack": 84,
-              "Decay": 0,
+              "Duration": 84,
+
               "PauseAfter": 217
             },
             {
               "Frequency": 311,
-              "Attack": 84,
-              "Decay": 0,
+              "Duration": 84,
+
               "PauseAfter": 366
             },
             {
               "Frequency": 311,
-              "Attack": 84,
-              "Decay": 0,
+              "Duration": 84,
+
               "PauseAfter": 217
             },
             {
               "Frequency": 311,
-              "Attack": 17,
-              "Decay": 0,
+              "Duration": 17,
+
               "PauseAfter": 133
             },
             {
               "Frequency": 311,
-              "Attack": 17,
-              "Decay": 0,
+              "Duration": 17,
+
               "PauseAfter": 133
             },
             {
               "Frequency": 311,
-              "Attack": 17,
-              "Decay": 0,
+              "Duration": 17,
+
               "PauseAfter": 133
             }
           ]
@@ -236,104 +243,104 @@
           "Beeps": [
             {
               "Frequency": 164,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 311
             },
             {
               "Frequency": 130,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 311
             },
             {
               "Frequency": 98,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 311
             },
             {
               "Frequency": 130,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 146,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 138,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 130,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 130,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 77
             },
             {
               "Frequency": 196,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 95
             },
             {
               "Frequency": 246,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 261,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 220,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 246,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 220,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 164,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 174,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 146,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 0
             }
           ]
@@ -346,104 +353,104 @@
           "Beeps": [
             {
               "Frequency": 261,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 311
             },
             {
               "Frequency": 196,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 311
             },
             {
               "Frequency": 164,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 311
             },
             {
               "Frequency": 220,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 246,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 233,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 220,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 196,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 77
             },
             {
               "Frequency": 329,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 95
             },
             {
               "Frequency": 392,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 440,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 349,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 392,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 329,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 160
             },
             {
               "Frequency": 261,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 293,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 11
             },
             {
               "Frequency": 246,
-              "Attack": 85,
-              "Decay": 55,
+              "Duration": 140,
+              "Instrument": 1,
               "PauseAfter": 0
             }
           ]
@@ -456,104 +463,104 @@
           "Beeps": [
             {
               "Frequency": 196,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 311
             },
             {
               "Frequency": 164,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 311
             },
             {
               "Frequency": 130,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 311
             },
             {
               "Frequency": 174,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 160
             },
             {
               "Frequency": 196,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 160
             },
             {
               "Frequency": 185,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 11
             },
             {
               "Frequency": 174,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 160
             },
             {
               "Frequency": 164,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 77
             },
             {
               "Frequency": 261,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 95
             },
             {
               "Frequency": 329,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 11
             },
             {
               "Frequency": 349,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 160
             },
             {
               "Frequency": 293,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 11
             },
             {
               "Frequency": 329,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 160
             },
             {
               "Frequency": 261,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 160
             },
             {
               "Frequency": 220,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 11
             },
             {
               "Frequency": 246,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 11
             },
             {
               "Frequency": 196,
-              "Attack": 140,
-              "Decay": 0,
+              "Duration": 140,
+
               "PauseAfter": 0
             }
           ]
@@ -566,123 +573,454 @@
           "Beeps": [
             {
               "Frequency": 100,
-              "Attack": 10,
+              "Duration": 10,
               "PauseAfter": 276
             },
             {
               "Frequency": 196,
-              "Attack": 17,
+              "Duration": 17,
               "PauseAfter": 200
             },
             {
               "Frequency": 196,
-              "Attack": 17,
+              "Duration": 17,
               "PauseAfter": 66
             },
             {
               "Frequency": 196,
-              "Attack": 84,
+              "Duration": 84,
               "PauseAfter": 216
             },
             {
               "Frequency": 196,
-              "Attack": 17,
+              "Duration": 17,
               "PauseAfter": 200
             },
             {
               "Frequency": 196,
-              "Attack": 24,
+              "Duration": 24,
               "PauseAfter": 65
             },
             {
               "Frequency": 100,
-              "Attack": 10,
+              "Duration": 10,
               "PauseAfter": 276
             },
             {
               "Frequency": 196,
-              "Attack": 17,
+              "Duration": 17,
               "PauseAfter": 200
             },
             {
               "Frequency": 196,
-              "Attack": 17,
+              "Duration": 17,
               "PauseAfter": 66
             },
             {
               "Frequency": 196,
-              "Attack": 84,
+              "Duration": 84,
               "PauseAfter": 216
             },
             {
               "Frequency": 196,
-              "Attack": 17,
+              "Duration": 17,
               "PauseAfter": 200
             },
             {
               "Frequency": 196,
-              "Attack": 24,
+              "Duration": 24,
               "PauseAfter": 65
             },
             {
               "Frequency": 100,
-              "Attack": 10,
+              "Duration": 10,
               "PauseAfter": 276
             },
             {
               "Frequency": 196,
-              "Attack": 17,
+              "Duration": 17,
               "PauseAfter": 200
             },
             {
               "Frequency": 196,
-              "Attack": 17,
+              "Duration": 17,
               "PauseAfter": 66
             },
             {
               "Frequency": 196,
-              "Attack": 84,
+              "Duration": 84,
               "PauseAfter": 216
             },
             {
               "Frequency": 196,
-              "Attack": 17,
+              "Duration": 17,
               "PauseAfter": 200
             },
             {
               "Frequency": 196,
-              "Attack": 24,
+              "Duration": 24,
               "PauseAfter": 65
             },
             {
               "Frequency": 100,
-              "Attack": 10,
+              "Duration": 10,
               "PauseAfter": 276
             },
             {
               "Frequency": 196,
-              "Attack": 17,
+              "Duration": 17,
               "PauseAfter": 200
             },
             {
               "Frequency": 196,
-              "Attack": 17,
+              "Duration": 17,
               "PauseAfter": 66
             },
             {
               "Frequency": 196,
-              "Attack": 84,
+              "Duration": 84,
               "PauseAfter": 216
             },
             {
               "Frequency": 196,
-              "Attack": 17,
+              "Duration": 17,
               "PauseAfter": 200
             },
             {
               "Frequency": 196,
-              "Attack": 24,
+              "Duration": 24,
               "PauseAfter": 65
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Title": "Main 2",
+      "Loops": 1,
+      "Tracks": [
+        {
+          "Title": "Pulse 1",
+          "Volume": 0.25,
+          "Pan": 0.0,
+          "SignalType": "Square",
+          "Beeps": [
+            {
+              "PauseBefore": 607,
+              "Frequency": 329,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 311,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 293,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 246,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 157
+            },
+            {
+              "Frequency": 261,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 157
+            },
+            {
+              "Frequency": 164,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 174,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 196,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 157
+            },
+            {
+              "Frequency": 130,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 164,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 174,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 306
+            },
+            {
+              "Frequency": 329,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 311,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 293,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 246,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 157
+            },
+            {
+              "Frequency": 261,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 157
+            },
+            {
+              "Frequency": 349,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 140
+            },
+            {
+              "Frequency": 349,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 6
+            },
+            {
+              "Frequency": 349,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 6
+            }
+          ]
+        },
+        {
+          "Title": "Pulse 2",
+          "Volume": 0.25,
+          "Pan": 0.0,
+          "SignalType": "Square",
+          "Beeps": [
+            {
+              "PauseBefore": 607,
+              "Frequency": 293,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 369,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 349,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 311,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 157
+            },
+            {
+              "Frequency": 329,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 157
+            },
+            {
+              "Frequency": 207,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 220,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 261,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 157
+            },
+            {
+              "Frequency": 220,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 261,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 293,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 306
+            },
+            {
+              "Frequency": 392,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 369,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 349,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 7
+            },
+            {
+              "Frequency": 311,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 157
+            },
+            {
+              "Frequency": 329,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 157
+            },
+            {
+              "Frequency": 523,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 140
+            },
+            {
+              "Frequency": 523,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 6
+            },
+            {
+              "Frequency": 523,
+              "Duration": 143,
+              "Instrument": 1,
+              "PauseAfter": 6
+            }
+          ]
+        },
+        {
+          "Title": "Triangle",
+          "Volume": 0.35,
+          "Pan": 0.0,
+          "SignalType": "Triangle",
+          "Beeps": [
+            {
+              "PauseBefore": 333,
+              "Frequency": 130,
+              "Duration": 133,
+              "PauseAfter": 314
+            },
+            {
+              "Frequency": 196,
+              "Duration": 133,
+              "PauseAfter": 317
+            },
+            {
+              "Frequency": 261,
+              "Duration": 133,
+              "PauseAfter": 167
+            },
+            {
+              "Frequency": 174,
+              "Duration": 133,
+              "PauseAfter": 325
+            },
+            {
+              "Frequency": 261,
+              "Duration": 118,
+              "PauseAfter": 32
+            },
+            {
+              "Frequency": 261,
+              "Duration": 118,
+              "PauseAfter": 183
+            },
+            {
+              "Frequency": 174,
+              "Duration": 133,
+              "PauseAfter": 170
+            },
+            {
+              "Frequency": 130,
+              "Duration": 133,
+              "PauseAfter": 316
+            },
+            {
+              "Frequency": 164,
+              "Duration": 133,
+              "PauseAfter": 320
+            },
+            {
+              "Frequency": 196,
+              "Duration": 133,
+              "PauseAfter": 14
+            },
+            {
+              "Frequency": 261,
+              "Duration": 133,
+              "PauseAfter": 157
+            },
+            {
+              "Frequency": 783,
+              "Duration": 133,
+              "PauseAfter": 151
+            },
+            {
+              "Frequency": 783,
+              "Duration": 133,
+              "PauseAfter": 21
+            },
+            {
+              "Frequency": 783,
+              "Duration": 133,
+              "PauseAfter": 170
             }
           ]
         }

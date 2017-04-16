@@ -11,21 +11,11 @@ using NAudio.Wave;
 
 namespace Beeper.Common.Models
 {
-    public class PreparedFile : BeeperFile
-    {
-        public new List<PreparedSection> Sections { get; set; }
-    }
-
-    public class PreparedSection : BeeperSection
-    {
-        public int Index { get; set; }
-        public new List<PreparedTrack> Tracks { get; set; }
-    }
-
-    public class PreparedTrack
+    public class PreparedFile
     {
         public IWavePlayer Player { get; set; }
         public ISampleProvider Provider { get; set; }
-        public int Index { get; set; }
+        public List<List<ISampleProvider>> Sections { get; set; }
+        public List<ISampleProvider> Samples { get; set; }
     }
 }

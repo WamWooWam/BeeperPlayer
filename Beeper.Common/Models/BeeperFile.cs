@@ -35,8 +35,7 @@ namespace Beeper.Common.Models
             };
             var Beep = new BeeperBeep()
             {
-                Attack = 750,
-                Decay = 250,
+                Duration = 1000,
                 Frequency = 1000,
                 PauseAfter = 100,
             };
@@ -60,6 +59,7 @@ namespace Beeper.Common.Models
 
         public BeeperMeta Metadata { get; set; }
         public List<BeeperSection> Sections { get; set; }
+        public List<BeeperInstrument> Instruments { get; set; }
 
         [JsonIgnore]
         public int TotalBeeps
@@ -69,10 +69,7 @@ namespace Beeper.Common.Models
                 var i = 0;
                 foreach (BeeperSection section in Sections)
                 {
-                    foreach (BeeperTrack track in section.Tracks)
-                    {
-                        i += track.Beeps.Count;
-                    }
+                    i += section.TotalBeeps;
                 }
                 return i;
             }
@@ -86,13 +83,16 @@ namespace Beeper.Common.Models
                 var i = 0;
                 foreach (BeeperSection section in Sections)
                 {
+                    var t = 0;
                     foreach (BeeperTrack track in section.Tracks)
                     {
                         foreach (BeeperBeep beep in track.Beeps)
                         {
-                            i += (beep.TotalDuration * section.Loops);
+                            t += (beep.TotalDuration * section.Loops);
                         }
                     }
+                    t /= section.Tracks.Count;
+                    i += t;
                 }
                 return TimeSpan.FromMilliseconds(i);
             }
@@ -120,11 +120,19 @@ namespace Beeper.Common.Models
                 var i = 0;
                 foreach (var track in Tracks)
                 {
-                    i += track.Beeps.Count;
+                    i += track.Beeps.Count * Loops;
                 }
                 return i;
             }
         }
+    }
+
+    public class BeeperInstrument
+    {
+        public int Attack { get; set; }
+        public int Decay { get; set; }
+        public float SustainLevel { get; set; } = 1.0F;
+        public int Release { get; set; }
     }
 
     public class BeeperTrack
@@ -132,6 +140,7 @@ namespace Beeper.Common.Models
         public string Title { get; set; }
         public float Volume { get; set; }
         public float Pan { get; set; }
+        public int? Instrument { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
         public SignalGeneratorType SignalType { get; set; }
         public List<BeeperBeep> Beeps { get; set; }
@@ -139,14 +148,14 @@ namespace Beeper.Common.Models
 
     public class BeeperBeep
     {
+        public int? PauseBefore { get; set; }
         public int Frequency { get; set; }
-        public int Attack { get; set; }
-        public int Decay { get; set; }
-        public int PauseAfter { get; set; }
-
+        public int Duration { get; set; }
+        public int? PauseAfter { get; set; }
+        public string Sample { get; set; }
         [JsonIgnore]
-        public int Duration { get { return Attack + Decay; } }
-        [JsonIgnore]
-        public int TotalDuration { get { return Duration + PauseAfter; } }
+        public int TotalDuration { get { return Duration + PauseAfter.GetValueOrDefault() + PauseBefore.GetValueOrDefault(); } }
     }
+
+    public enum BeeperFileType { Json, Zip }
 }

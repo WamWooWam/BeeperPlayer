@@ -36,11 +36,12 @@ namespace Beeper
             }
 
             Config.ErrorReporter = new ErrorReporter(); // Manages error reporting settings
-            Config.TimingAccuracy = new Accuracy(); // Manages timing accuracy
             Config.FirstRun = true; // Manages first run
             ConsolePlus.Debug = Config.Debug; // Manages debug
 
-            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException; // Sets exception handler
+            if (!args.Contains("vsdebug"))
+                AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException; // Sets exception handler
+
             if (File.Exists(Path.Combine(CurrentDurectory, "config.json"))) // Checks for configuration file
             {
                 try
@@ -105,7 +106,6 @@ namespace Beeper
                     ConsolePlus.WriteLine(" - Environment Variables");
                     ConsolePlus.WriteLine(" - Currently opened files");
                     ConsolePlus.WriteLine(" - App configuration");
-                    ConsolePlus.WriteLine("It may also periodically send performance metrics and latency information. This allows me to identify potential performance bottlenecks and make the app faster!");
                     Console.WriteLine();
                     Console.WriteLine();
                     while (true)
@@ -150,17 +150,11 @@ namespace Beeper
             {
                 Config.Debug = true;
                 ConsolePlus.Debug = true;
-                Config.Save(CurrentDurectory); 
+                Config.Save(CurrentDurectory);
                 ConsolePlus.WriteLine($"     --- DEBUG MODE ENABLED --- ", ConsoleColor.Red);
             }
-            try
-            {
                 CLI.RunCLI(args);
-            }
-            catch (Exception ex)
-            {
-                ReportError(ex).Wait();
-            }
+   
         }
 
         /// <summary>

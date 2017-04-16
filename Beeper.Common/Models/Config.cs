@@ -1,7 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using Beeper.Common.Statistics;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,36 +14,18 @@ namespace Beeper.Common.Models
     {
         public string InstanceID { get; set; }
         public bool FirstRun { get; set; }
-        public Accuracy TimingAccuracy { get; set; }
+        public bool Debug { get; set; }
         public ErrorReporter ErrorReporter { get; set; }
-    }
 
-    public class Accuracy
-    {
-        public Accuracy()
+        public void Save(string CurrentDurectory)
         {
-            EnableOnTheFlyAdjustment = true;
-            EnableCache = true;
-            AccuracyThreshold = 5;
+            File.WriteAllText(Path.Combine(CurrentDurectory, "config.json"),
+                        JsonConvert.SerializeObject(this, Formatting.Indented));
         }
-
-        /// <summary>
-        /// Enables/disables on the fly timing adjustments, improves accuracy
-        /// of timings by modifying how long sounds play and pause for
-        /// </summary>
-        public bool EnableOnTheFlyAdjustment { get; set; }
-        /// <summary>
-        /// Enables/disables caching of adjustments.
-        /// </summary>
-        public bool EnableCache { get; set; }
-        /// <summary>
-        /// The number of milliseconds larger or smaller a time can be
-        /// before it is considered inaccurate
-        /// </summary>
-        public int AccuracyThreshold { get; set; }
     }
 
-    public class AppState
+
+   public class AppState
     {
         public string[] CommandLineArgs { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
@@ -49,6 +33,7 @@ namespace Beeper.Common.Models
         [JsonConverter(typeof(StringEnumConverter))]
         public Output Output { get; set; }
         public string FileString { get; set; }
+        public string ExtractPath { get; set; }
         public BeeperFile LoadedFile { get; set; }
         public bool IsCaching { get; set; }
     }
@@ -112,7 +97,6 @@ namespace Beeper.Common.Models
         public object Exception { get; set; }
         public AppState AppState { get; set; }
         public Config Config { get; set; }
-        public PlaySynchroniser PlaySync { get; set; }
         public EnvironmentInfo EnvironmentInfo { get; set; }
     }
 }

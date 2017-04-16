@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Beeper.Common;
 using WamWooWam.Core;
+using System.Diagnostics;
 
 namespace Beeper.UI
 {
@@ -65,35 +66,25 @@ namespace Beeper.UI
                 Program.AppState.BasicState = BasicState.SearchingForFile;
                 string ToPlay = null;
                 // Looks for a file within command line args
-                foreach (string arg in args)
+                foreach (string arg in args) // Runs through all command line arguments
                 {
-                    if (File.Exists(arg))
+                    if (File.Exists(arg)) // If that file exists
                     {
-                        ToPlay = arg;
-                        break;
+                        ToPlay = arg; // Open it
+                        break; // Break out of loop
                     }
                 }
 
                 if (ToPlay != null)
                 {
                     // Loads file from JSON
+                    Program.AppState.FileString = Path.GetDirectoryName(ToPlay);
                     Program.AppState.BasicState = BasicState.LoadingFile;
-                    Program.AppState.FileString = File.ReadAllText(ToPlay); // The raw string of the file, used for crash reports
                     ConsolePlus.WriteLine($@"Loading file ""{ToPlay}""...");
-                    Program.AppState.LoadedFile = new BeeperFile();
-                    try
-                    {
-                        // Loads a file
-                        Program.AppState.LoadedFile = JsonConvert.DeserializeObject<BeeperFile>(Program.AppState.FileString);
-                    }
-                    catch (Exception ex)
-                    {
-                        // Handles load errors
-                        ConsolePlus.WriteLine("Well shit, something fucked up when I tried to open that file! I'm going to close now...", ConsoleColor.Red);
-                        ConsolePlus.WriteDebug("JSON", ex.Message);
-                        Program.ReportError(ex).Wait(); // Reports errors
-                        Environment.Exit(0);
-                    }
+                    var LoadedFile = Load.LoadFromFile(ToPlay);
+                    Program.AppState.LoadedFile = LoadedFile.Item1;
+                    Program.AppState.ExtractPath = LoadedFile.Item2;
+                    var FileToPlay = Prepare.PrepareBeeperFile(Program.AppState.LoadedFile, Program.AppState.Output, Program.AppState.ExtractPath);
                     ConsolePlus.WriteLine($@"Loaded BeeperFile from ""{ToPlay}""!");
                     // Manages file upgrades
                     // TODO: Incremental changes
@@ -128,8 +119,10 @@ namespace Beeper.UI
                         Program.AppState.Output = Output.File;
                     else if (args.Contains("wasapi"))
                         Program.AppState.Output = Output.Wasapi;
-                    else
+                    else if (args.Contains("waveout") || args.Contains("wo"))
                         Program.AppState.Output = Output.WaveOut;
+                    else
+                        Program.AppState.Output = Output.DirectSound;
 
                     // Outputs file information
                     ConsolePlus.WriteHeading("File Information");
@@ -139,20 +132,16 @@ namespace Beeper.UI
                     ConsolePlus.WriteLine($"Total Beeps        : {Program.AppState.LoadedFile.TotalBeeps}");
                     ConsolePlus.WriteLine($"Duration           : {Program.AppState.LoadedFile.Duration.ToString(@"hh\:mm\:ss")}");
                     // Sets console title
-                    Console.Title = $"BeeperPlayer {Program.AppState.LoadedFile.Metadata.Title} - {Program.AppState.LoadedFile.Metadata.Artist}";
+                    Console.Title = $"BeeperPlayer | {Program.AppState.LoadedFile.Metadata.Title} - {Program.AppState.LoadedFile.Metadata.Artist}";
                     Console.WriteLine();
                     if (Program.AppState.Output != Output.File)
                     {
-                        ConsolePlus.Write("Preparing to play... ");
-                        var FileToPlay = Prepare.PrepareBeeperFile(Program.AppState.LoadedFile);
-                        ConsolePlus.Write("Ready!", ConsoleColor.Green);
-                        Console.WriteLine();
                         Console.WriteLine();
                         // Waits to play
                         ConsolePlus.WriteLine("Press any key to play...", ConsoleColor.Green);
                         Console.WriteLine();
                         Console.ReadKey();
-                        Play.PlayBeeperFile(FileToPlay); // Plays the beeper file
+                        Play.PlayPreparedBeeperFile(Program.AppState.LoadedFile, FileToPlay); // Plays the beeper file
                     }
                     else
                     {
@@ -187,7 +176,7 @@ namespace Beeper.UI
                         if (Overwrite)
                         {
                             File.Delete(OutputFile);
-                            Export.ExportBeeperFile(Program.AppState.LoadedFile, OutputFile);
+                            Export.ExportBeeperFile(FileToPlay, OutputFile);
                         }
                         else
                         {
