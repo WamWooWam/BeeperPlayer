@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using WamWooWam.Core;
@@ -20,18 +21,27 @@ namespace Beeper.Common
         /// </summary>
         /// <param name="Original">The beeper file that needs converting</param>
         /// <returns>The converted, ready to play file.</returns>
-        public static PreparedFile PrepareBeeperFile(BeeperFile Original, Output Method, string OutputDirectory)
+        public static PreparedFile PrepareBeeperFile(BeeperFile Original, Output Method, string OutputDirectory, string FilePath)
         {
             // Initially create new file and copy metadata
-            var PreparedFile = new PreparedFile()
+            PreparedFile PreparedFile = new PreparedFile()
             {
                 Samples = new List<ISampleProvider>(),
                 Sections = new List<List<ISampleProvider>>()
             };
+            using (SHA256 sha = SHA256.Create())
+            {
+                List<char> array = Convert.ToBase64String(sha.ComputeHash(File.OpenRead(FilePath))).ToArray().ToList();
+                array.RemoveAll(c => Path.GetInvalidFileNameChars().Contains(c) | char.IsSymbol(c));
+                StringBuilder builder = new StringBuilder();
+                builder.Append(array.ToArray());
+                PreparedFile.SHA256 = builder.ToString();
+            }
+            ConsolePlus.WriteLine($"Preparing file with hash \"{PreparedFile.SHA256}\"");
             List<ISampleProvider> mixers = new List<ISampleProvider>();
             foreach (BeeperSection section in Original.Sections) // Run through each section
             {
-                for (var i = 1; i <= section.Loops; i++) // and it's loops
+                for (int i = 1; i <= section.Loops; i++) // and it's loops
                 {
                     // Create a new section and copy some values
                     List<ISampleProvider> samples = new List<ISampleProvider>();

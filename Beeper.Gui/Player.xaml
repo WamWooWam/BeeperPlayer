@@ -1,0 +1,68 @@
+﻿<Window x:Class="Beeper.Gui.Player"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Beeper.Gui"
+        mc:Ignorable="d"
+        Title="BeeperPlayer" Height="310" Width="500" Loaded="Window_Loaded" Closing="Window_Closing" Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="148"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="148"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="33"/>
+                <ColumnDefinition Width="33"/>
+            </Grid.ColumnDefinitions>
+            <Border Margin="10" BorderBrush="Gray" BorderThickness="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                <Grid>
+                    <Image x:Name="albumArt" />
+                    <Label x:Name="loadingLabel" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                </Grid>
+            </Border>
+            <TextBlock x:Name="trackTitle" Grid.Column="1" Margin="10,10,10,0" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="TextBlock" VerticalAlignment="Top" FontSize="36" Height="44" />
+            <TextBlock x:Name="trackAlbum" Grid.Column="1" Margin="10,54,10,0" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="TextBlock" FontSize="24" Foreground="Gray" VerticalAlignment="Top"/>
+            <TextBlock x:Name="trackComposer" Grid.Column="1" Margin="10,0,10,33" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="TextBlock" FontSize="18" Foreground="Gray" Height="29" VerticalAlignment="Bottom" />
+            <ProgressBar x:Name="volumeBarRight" Grid.Column="2" Margin="10,10,5,10" Orientation="Vertical" d:LayoutOverrides="HorizontalAlignment" Maximum="1" SmallChange="1E-07"/>
+            <ProgressBar x:Name="volumeBarLeft" Grid.Column="3" Margin="5,10,10,10" Orientation="Vertical" d:LayoutOverrides="HorizontalAlignment" Maximum="1" SmallChange="1E-07"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="38"/>
+                <RowDefinition Height="84"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Grid Height="18" Margin="10,10,10,0" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="35"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="35"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="0:00" x:Name="elapsedTime" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <ProgressBar x:Name="playBar" Grid.Column="1" Margin="5,0" IsIndeterminate="True" MouseDown="playBar_MouseDown" MouseMove="playBar_MouseMove" MouseUp="playBar_MouseUp" />
+                <TextBlock Grid.Column="2" x:Name="remainingTime" Text="0:00" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <Button x:Name="playButton" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10,10,10,10" Width="64" Grid.Row="1" Background="#00DDDDDD" BorderBrush="#00DDDDDD" Click="playButton_Click">
+                <Image x:Name="playImage" />
+            </Button>
+            <Button x:Name="stopButton" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="79,26,10,10" Width="48" Grid.Row="1" Background="#00DDDDDD" BorderBrush="#00DDDDDD" Click="stopButton_Click">
+                <Image x:Name="stopImage" />
+            </Button>
+            <Grid Margin="0,0,10,10" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="168" Height="24">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="24"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="24"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="volumeLowImage"></Image>
+                <Slider x:Name="volumeSlider" Grid.Column="1" Maximum="1" LargeChange="0.2" ValueChanged="volumeSlider_ValueChanged" Value="1" Height="20" />
+                <Image x:Name="volumeHighImage" Grid.Column="2"></Image>
+            </Grid>            
+            <Label Content="Volume" HorizontalAlignment="Right" Margin="0,0,10,34" Grid.Row="1" Width="168" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Height="24"/>
+        </Grid>
+    </Grid>
+</Window>

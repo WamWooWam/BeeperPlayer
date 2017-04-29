@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beeper", "Beeper\Beeper.csproj", "{87249A74-7860-49ED-9086-BFF0749E58EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beeper.Common", "Beeper.Common\Beeper.Common.csproj", "{9AE0EF67-4CB3-4379-BBD7-709F3120F13F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beeper.Common", "Beeper.Common\Beeper.Common.csproj", "{DFC1D280-EFA4-4F57-A51E-EC2B75FE6ABA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beeper.Gui", "Beeper.Gui\Beeper.Gui.csproj", "{BF0D77E0-BD7C-486A-96A6-9D39690D5A27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,20 +25,22 @@ Global
 		{87249A74-7860-49ED-9086-BFF0749E58EA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{87249A74-7860-49ED-9086-BFF0749E58EA}.Release|x64.ActiveCfg = Release|x64
 		{87249A74-7860-49ED-9086-BFF0749E58EA}.Release|x64.Build.0 = Release|x64
-		{9AE0EF67-4CB3-4379-BBD7-709F3120F13F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9AE0EF67-4CB3-4379-BBD7-709F3120F13F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9AE0EF67-4CB3-4379-BBD7-709F3120F13F}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{9AE0EF67-4CB3-4379-BBD7-709F3120F13F}.Debug|x64.Build.0 = Debug|Any CPU
-		{9AE0EF67-4CB3-4379-BBD7-709F3120F13F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9AE0EF67-4CB3-4379-BBD7-709F3120F13F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9AE0EF67-4CB3-4379-BBD7-709F3120F13F}.Release|x64.ActiveCfg = Release|Any CPU
-		{9AE0EF67-4CB3-4379-BBD7-709F3120F13F}.Release|x64.Build.0 = Release|Any CPU
-		{FEA8E888-CDC2-4FFA-BF39-CA60EA27C82E}.Debug|Any CPU.ActiveCfg = Debug
-		{FEA8E888-CDC2-4FFA-BF39-CA60EA27C82E}.Debug|x64.ActiveCfg = Debug
-		{FEA8E888-CDC2-4FFA-BF39-CA60EA27C82E}.Debug|x64.Build.0 = Debug
-		{FEA8E888-CDC2-4FFA-BF39-CA60EA27C82E}.Release|Any CPU.ActiveCfg = Release
-		{FEA8E888-CDC2-4FFA-BF39-CA60EA27C82E}.Release|x64.ActiveCfg = Release
-		{FEA8E888-CDC2-4FFA-BF39-CA60EA27C82E}.Release|x64.Build.0 = Release
+		{DFC1D280-EFA4-4F57-A51E-EC2B75FE6ABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFC1D280-EFA4-4F57-A51E-EC2B75FE6ABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFC1D280-EFA4-4F57-A51E-EC2B75FE6ABA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DFC1D280-EFA4-4F57-A51E-EC2B75FE6ABA}.Debug|x64.Build.0 = Debug|Any CPU
+		{DFC1D280-EFA4-4F57-A51E-EC2B75FE6ABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFC1D280-EFA4-4F57-A51E-EC2B75FE6ABA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFC1D280-EFA4-4F57-A51E-EC2B75FE6ABA}.Release|x64.ActiveCfg = Release|Any CPU
+		{DFC1D280-EFA4-4F57-A51E-EC2B75FE6ABA}.Release|x64.Build.0 = Release|Any CPU
+		{BF0D77E0-BD7C-486A-96A6-9D39690D5A27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF0D77E0-BD7C-486A-96A6-9D39690D5A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF0D77E0-BD7C-486A-96A6-9D39690D5A27}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BF0D77E0-BD7C-486A-96A6-9D39690D5A27}.Debug|x64.Build.0 = Debug|Any CPU
+		{BF0D77E0-BD7C-486A-96A6-9D39690D5A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF0D77E0-BD7C-486A-96A6-9D39690D5A27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF0D77E0-BD7C-486A-96A6-9D39690D5A27}.Release|x64.ActiveCfg = Release|Any CPU
+		{BF0D77E0-BD7C-486A-96A6-9D39690D5A27}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

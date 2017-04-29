@@ -17,5 +17,6 @@ namespace Beeper.Common.Models
         public ISampleProvider Provider { get; set; }
         public List<List<ISampleProvider>> Sections { get; set; }
         public List<ISampleProvider> Samples { get; set; }
+        public string SHA256 { get; set; }
     }
 }

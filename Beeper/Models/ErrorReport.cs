@@ -19,7 +19,7 @@ namespace Beeper.Common.Models
             List<string> strList = new List<string>();
             foreach (string str in AppState.CommandLineArgs)
             {
-                var newstr = str.Replace(Environment.UserName, "<USERNAME>");
+                string newstr = str.Replace(Environment.UserName, "<USERNAME>");
                 strList.Add(str);
             }
             AppState.CommandLineArgs = strList.ToArray();

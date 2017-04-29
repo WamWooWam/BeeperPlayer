@@ -21,20 +21,20 @@ namespace Beeper.Common
         {
             if (ZipFile.IsZipFile(FilePath)) // If the file is a zip file...
             {
-                var ExtractPath = Path.Combine(Path.GetTempPath(), Path.GetFileNameWithoutExtension(Path.GetTempFileName()));
+                string ExtractPath = Path.Combine(Path.GetTempPath(), Path.GetFileNameWithoutExtension(Path.GetTempFileName()));
                 Directory.CreateDirectory(ExtractPath); // Prepare a temporary directory to extract it to
                 using (ZipFile zip = ZipFile.Read(FilePath))
                 {
                     zip.ExtractAll(ExtractPath); // Extract the whole file to the temp folder
                 }
-                var LoadedFile = JsonConvert.DeserializeObject<BeeperFile>(File.ReadAllText(Path.Combine(ExtractPath, "file.beep")));
+                BeeperFile LoadedFile = JsonConvert.DeserializeObject<BeeperFile>(File.ReadAllText(Path.Combine(ExtractPath, "file.beep")));
                 return new Tuple<BeeperFile, string, BeeperFileType>(LoadedFile, ExtractPath, BeeperFileType.Zip);
             }
             else
             {
-                var ExtractPath = Path.GetDirectoryName(FilePath);
-                var LoadedFile = JsonConvert.DeserializeObject<BeeperFile>(File.ReadAllText(FilePath));
-                return new Tuple<BeeperFile, string, BeeperFileType>(LoadedFile, ExtractPath, BeeperFileType.Zip);
+                string ExtractPath = Path.GetDirectoryName(FilePath);
+                BeeperFile LoadedFile = JsonConvert.DeserializeObject<BeeperFile>(File.ReadAllText(FilePath));
+                return new Tuple<BeeperFile, string, BeeperFileType>(LoadedFile, ExtractPath, BeeperFileType.Json);
             }
         }
     }

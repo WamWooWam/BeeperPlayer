@@ -39,11 +39,11 @@ namespace Beeper.UI
                 Program.AppState.BasicState = BasicState.Scaffolding;
                 ConsolePlus.WriteLine("Scaffolding...");
                 BeeperFile NewFile = BeeperFile.Create();
-                var FileString = JsonConvert.SerializeObject(NewFile, Formatting.Indented);
+                string FileString = JsonConvert.SerializeObject(NewFile, Formatting.Indented);
                 ConsolePlus.Write(FileString);
                 Console.WriteLine();
                 ConsolePlus.Write("Type a filename: ");
-                var FileName = Console.ReadLine();
+                string FileName = Console.ReadLine();
                 File.WriteAllText(FileName, FileString); // TODO: More input valiation
                 ConsolePlus.WriteLine("A new BeeperFile has been writen to 'newbeep.beep'.");
                 Console.ReadKey();
@@ -81,10 +81,10 @@ namespace Beeper.UI
                     Program.AppState.FileString = Path.GetDirectoryName(ToPlay);
                     Program.AppState.BasicState = BasicState.LoadingFile;
                     ConsolePlus.WriteLine($@"Loading file ""{ToPlay}""...");
-                    var LoadedFile = Load.LoadFromFile(ToPlay);
+                    Tuple<BeeperFile, string, BeeperFileType> LoadedFile = Load.LoadFromFile(ToPlay);
                     Program.AppState.LoadedFile = LoadedFile.Item1;
                     Program.AppState.ExtractPath = LoadedFile.Item2;
-                    var FileToPlay = Prepare.PrepareBeeperFile(Program.AppState.LoadedFile, Program.AppState.Output, Program.AppState.ExtractPath);
+                    PreparedFile FileToPlay = Prepare.PrepareBeeperFile(Program.AppState.LoadedFile, Program.AppState.Output, Program.AppState.ExtractPath, ToPlay);
                     ConsolePlus.WriteLine($@"Loaded BeeperFile from ""{ToPlay}""!");
                     // Manages file upgrades
                     // TODO: Incremental changes
@@ -126,13 +126,14 @@ namespace Beeper.UI
 
                     // Outputs file information
                     ConsolePlus.WriteHeading("File Information");
-                    ConsolePlus.WriteLine($"Song Title         : {Program.AppState.LoadedFile.Metadata.Title}");
-                    ConsolePlus.WriteLine($"Song Artist        : {Program.AppState.LoadedFile.Metadata.Artist}");
-                    ConsolePlus.WriteLine($"Composer           : {Program.AppState.LoadedFile.Metadata.FileCreator}");
+                    ConsolePlus.WriteLine($"Title              : {Program.AppState.LoadedFile.Metadata.Title}");
+                    ConsolePlus.WriteLine($"Artist             : {Program.AppState.LoadedFile.Metadata.Album}");
+                    ConsolePlus.WriteLine($"Composer           : {Program.AppState.LoadedFile.Metadata.Composer}");
+                    ConsolePlus.WriteLine($"File Creator       : {Program.AppState.LoadedFile.Metadata.FileCreator}");
                     ConsolePlus.WriteLine($"Total Beeps        : {Program.AppState.LoadedFile.TotalBeeps}");
                     ConsolePlus.WriteLine($"Duration           : {Program.AppState.LoadedFile.Duration.ToString(@"hh\:mm\:ss")}");
                     // Sets console title
-                    Console.Title = $"BeeperPlayer | {Program.AppState.LoadedFile.Metadata.Title} - {Program.AppState.LoadedFile.Metadata.Artist}";
+                    Console.Title = $"BeeperPlayer | {Program.AppState.LoadedFile.Metadata.Title} - {Program.AppState.LoadedFile.Metadata.Album}";
                     Console.WriteLine();
                     if (Program.AppState.Output != Output.File)
                     {
@@ -147,7 +148,7 @@ namespace Beeper.UI
                     {
                         ConsolePlus.WriteLine("Enter an output filename");
                         Console.Write(" ");
-                        var OutputFile = Console.ReadLine();
+                        string OutputFile = Console.ReadLine();
                         Console.WriteLine();
                         if (String.IsNullOrEmpty(Path.GetExtension(OutputFile)))
                             OutputFile += ".wav";
@@ -157,7 +158,7 @@ namespace Beeper.UI
                             ConsolePlus.WriteLine($@"The file ""{OutputFile}"" already exists. Do you want to overwrite it?");
                             while (true)
                             {
-                                var key = Console.ReadKey();
+                                ConsoleKeyInfo key = Console.ReadKey();
                                 Console.WriteLine();
                                 if (key.KeyChar == 'y')
                                 {
@@ -198,7 +199,7 @@ namespace Beeper.UI
                     if (!string.IsNullOrEmpty(FileToOpen))
                     {
                         ConsolePlus.WriteLine("OK! Let's try this then!");
-                        var list = args.ToList();
+                        List<string> list = args.ToList();
                         list.Add(FileToOpen);
                         RunCLI(list.ToArray());
                     }

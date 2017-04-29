@@ -1,0 +1,34 @@
+﻿<ListViewItem x:Class="Beeper.Gui.Controls.RecentlyOpenedFileControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Beeper.Gui.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="36" MouseDoubleClick="ListViewItem_MouseDoubleClick">
+
+    <Grid>
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <MenuItem x:Name="openMenuItem" Header="Open" Click="openMenuItem_Click">
+                    <MenuItem.Icon>
+                        <Image x:Name="openImage" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem x:Name="removeMenuItem" Header="Remove" Click="removeMenuItem_Click">
+                    <MenuItem.Icon>
+                        <Image x:Name="removeImage" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </ContextMenu>
+        </Grid.ContextMenu>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="32"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="beeperIcon" Height="32" Width="32"/>
+        <TextBlock Grid.Column="1" x:Name="fileName" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" Text="%NAME%" FontSize="16" Margin="5,0,0,0" FontWeight="SemiBold"/>
+        <TextBlock Grid.Column="1" x:Name="filePath" TextTrimming="CharacterEllipsis" Grid.Row="1" TextWrapping="NoWrap" Text="%PATH%" FontSize="10" Margin="5,22,0,0" Foreground="Gray"/>
+    </Grid>
+</ListViewItem>

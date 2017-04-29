@@ -111,7 +111,7 @@ namespace Beeper
                     while (true)
                     {
                         ConsolePlus.Write("Type Y/N to agree/disagree: ");
-                        var key = Console.ReadKey();
+                        ConsoleKeyInfo key = Console.ReadKey();
                         Console.WriteLine();
                         if (key.KeyChar == 'y')
                         {
@@ -197,7 +197,7 @@ namespace Beeper
                 while (true)
                 {
                     ConsolePlus.Write("Do you want to send an error report? Press V to view what will be sent. (Y/N/V): ");
-                    var key = Console.ReadKey();
+                    ConsoleKeyInfo key = Console.ReadKey();
                     Console.WriteLine();
                     Console.WriteLine();
                     if (key.KeyChar == 'y')
@@ -223,16 +223,16 @@ namespace Beeper
                     try
                     {
                         ConsolePlus.WriteLine("Sending error report...");
-                        using (var client = new HttpClient())
+                        using (HttpClient client = new HttpClient())
                         {
-                            var values = new Dictionary<string, string>
+                            Dictionary<string, string> values = new Dictionary<string, string>
                             {
                                 { "Report", report },
                                 { "Instance", Config.InstanceID }
                             };
 
-                            var content = new FormUrlEncodedContent(values);
-                            var response = await client.PostAsync("https://wamwoowam.cf/apps/beeper/reporterror", content);
+                            FormUrlEncodedContent content = new FormUrlEncodedContent(values);
+                            HttpResponseMessage response = await client.PostAsync("https://wamwoowam.cf/apps/beeper/reporterror", content);
                         }
                         ConsolePlus.WriteLine("Error report sent!");
                     }

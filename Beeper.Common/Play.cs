@@ -12,9 +12,9 @@ namespace Beeper.Common
 {
     public static class Play
     {
-        public static void PlayBeeperFile(BeeperFile ToPlay)
+        public static void PlayBeeperFile(BeeperFile ToPlay, string FilePath)
         {
-            var PreparedFile = Prepare.PrepareBeeperFile(ToPlay, Output.DirectSound, null);
+            PreparedFile PreparedFile = Prepare.PrepareBeeperFile(ToPlay, Output.DirectSound, null, FilePath);
             PreparedFile.Player.Play();
             OutputToConsole(ToPlay);
         }
@@ -30,7 +30,7 @@ namespace Beeper.Common
         {
             foreach (BeeperSection section in ToPlay.Sections) // Go through each section
             {
-                for (var i = 1; i <= section.Loops; i++) // and it's loops
+                for (int i = 1; i <= section.Loops; i++) // and it's loops
                 {
                     ConsolePlus.WriteHeading($"Section: {section.Title} (Loop {i}) - {section.TotalBeeps / section.Loops} Beeps"); // Output section information
                     Parallel.ForEach(section.Tracks, t =>

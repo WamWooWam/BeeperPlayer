@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Beeper.Gui.Controls.RecentFile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Beeper.Gui.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="36">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="32"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="beeperIcon" Height="32" Width="32"/>
+        <Grid Grid.Column="1" Margin="5,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="18"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="fileName" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" Text="ducktales.beep" FontSize="16"/>
+            <TextBlock x:Name="filePath" TextTrimming="CharacterEllipsis" Grid.Row="1" TextWrapping="NoWrap" Text="C:\Users\Thomas\Desktop\Beeper\Beeper\bin\Debug\ducktales\file.beep" FontSize="10" Margin="0,0,0,4"/>
+        </Grid>
+    </Grid>
+</UserControl>

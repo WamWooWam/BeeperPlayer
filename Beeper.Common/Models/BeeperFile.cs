@@ -14,26 +14,27 @@ namespace Beeper.Common.Models
     {
         public static BeeperFile Create()
         {
-            var Metadata = new BeeperMeta()
+            BeeperMeta Metadata = new BeeperMeta()
             {
                 Title = "Example Title",
-                Artist = "Example Artist",
+                Album = "Example Game",
+                Composer = "Example Composer",
                 FileCreator = Environment.UserName,
                 Version = 2
             };
-            var Section = new BeeperSection
+            BeeperSection Section = new BeeperSection
             {
                 Title = "Example Section",
                 Tracks = new List<BeeperTrack>()
             };
-            var Track = new BeeperTrack()
+            BeeperTrack Track = new BeeperTrack()
             {
                 Title = "ExampleTrack",
                 SignalType = SignalGeneratorType.Square,
                 Beeps = new List<BeeperBeep>(),
                 Volume = 0.25F
             };
-            var Beep = new BeeperBeep()
+            BeeperBeep Beep = new BeeperBeep()
             {
                 Duration = 1000,
                 Frequency = 1000,
@@ -41,7 +42,7 @@ namespace Beeper.Common.Models
             };
             Track.Beeps.Add(Beep);
             Section.Tracks.Add(Track);
-            var Sections = new List<BeeperSection>();
+            List<BeeperSection> Sections = new List<BeeperSection>();
             Sections.Add(Section);
             return new BeeperFile
             {
@@ -52,7 +53,7 @@ namespace Beeper.Common.Models
 
         public static BeeperFile Upgrade(BeeperFile Original)
         {
-            var NewFile = JsonConvert.DeserializeObject<BeeperFile>(JsonConvert.SerializeObject(Original));
+            BeeperFile NewFile = JsonConvert.DeserializeObject<BeeperFile>(JsonConvert.SerializeObject(Original));
             NewFile.Metadata.Version = 3;
             return NewFile;
         }
@@ -66,7 +67,7 @@ namespace Beeper.Common.Models
         {
             get
             {
-                var i = 0;
+                int i = 0;
                 foreach (BeeperSection section in Sections)
                 {
                     i += section.TotalBeeps;
@@ -80,10 +81,10 @@ namespace Beeper.Common.Models
         {
             get
             {
-                var i = 0;
+                int i = 0;
                 foreach (BeeperSection section in Sections)
                 {
-                    var t = 0;
+                    int t = 0;
                     foreach (BeeperTrack track in section.Tracks)
                     {
                         foreach (BeeperBeep beep in track.Beeps)
@@ -103,8 +104,10 @@ namespace Beeper.Common.Models
     {
         public int? Version { get; set; }
         public string Title { get; set; }
-        public string Artist { get; set; }
+        public string Album { get; set; }
+        public string Composer { get; set; }
         public string FileCreator { get; set; }
+        public string AlbumArt { get; set; }
     }
 
     public class BeeperSection
@@ -117,8 +120,8 @@ namespace Beeper.Common.Models
         {
             get
             {
-                var i = 0;
-                foreach (var track in Tracks)
+                int i = 0;
+                foreach (BeeperTrack track in Tracks)
                 {
                     i += track.Beeps.Count * Loops;
                 }

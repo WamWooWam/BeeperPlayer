@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Beeper.Common")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Provides a common framework for loading, managing and editing BeeperFiles")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("WanKerr Co. Ltd.")]
 [assembly: AssemblyProduct("Beeper.Common")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("Licenced under the MS-PL")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -15,7 +15,7 @@ namespace Beeper.Common
 {
     public static class Export
     {
-        public static void ExportBeeperFile(PreparedFile toExport, string Filename)
+        public static void ExportBeeperFile(PreparedFile toExport, string Filename, bool Padding = true)
         {
             bool ExportToMP3 = (Path.GetExtension(Filename) == ".mp3");
             if (ExportToMP3)
@@ -23,19 +23,21 @@ namespace Beeper.Common
             else
                 ConsolePlus.WriteHeading($"Exporting to Wave File");
 
-            var mediaType = MediaFoundationEncoder.SelectMediaType(AudioSubtypes.MFAudioFormat_MP3, new WaveFormat(44100, 2), 192000);
+            MediaType mediaType = MediaFoundationEncoder.SelectMediaType(AudioSubtypes.MFAudioFormat_MP3, new WaveFormat(44100, 2), 192000);
             if (ExportToMP3 && mediaType == null)
             {
-                ConsolePlus.WriteLine("You seem to want to export to MP3, but your system doesn't support it.");
-                ConsolePlus.WriteLine("BeeperPlayer will now exit");
+                throw new NotSupportedException("Unable to write to MP3 as OS does not support it");
             }
             else
             {
                 // TODO: Why do I need to make convert to a wave provider and then back to a sample provider
                 //       to stop it doing strange things?
                 OffsetSampleProvider offset = new OffsetSampleProvider(toExport.Provider.ToWaveProvider().ToSampleProvider());
-                offset.DelayBy = TimeSpan.FromMilliseconds(500);
-                offset.LeadOut = TimeSpan.FromMilliseconds(500);
+                if (Padding)
+                {
+                    offset.DelayBy = TimeSpan.FromMilliseconds(500);
+                    offset.LeadOut = TimeSpan.FromMilliseconds(500);
+                }
                 ConsolePlus.Write($@"Exporting file to ""{Filename}""...");
                 if (ExportToMP3)
                 {
@@ -48,6 +50,21 @@ namespace Beeper.Common
                 ConsolePlus.Write($@"Done!", ConsoleColor.Green);
                 Console.WriteLine();
             }
+        }
+
+        public static Stream ExportBeeperFile(PreparedFile toExport, bool Padding = true)
+        {
+            MemoryStream stream = new MemoryStream();
+            OffsetSampleProvider offset = new OffsetSampleProvider(toExport.Provider.ToWaveProvider().ToSampleProvider());
+            if (Padding)
+            {
+                offset.DelayBy = TimeSpan.FromMilliseconds(500);
+                offset.LeadOut = TimeSpan.FromMilliseconds(500);
+            }
+            stream.Seek(0, SeekOrigin.Begin);
+            WaveFileWriter.WriteWavFileToStream(stream, offset.ToWaveProvider());
+            stream.Seek(0, SeekOrigin.Begin);
+            return stream;
         }
     }
 }
